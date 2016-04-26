@@ -1,8 +1,8 @@
 #!/usr/bin/python
 
-from user import User
-from ticket import Ticket
-from ticketHandle import TicketHandler
+from src import user
+from src import ticket
+from src import ticketHandler
 
 def main():
     eId = 'exxxx'
@@ -12,11 +12,13 @@ def main():
     tId = 'txxxx'
     title = 'tilte_description'
 
-    author = new User(eId, username, password, email)
-    assignee = new User(eId, username, password, email)
-    ticket = new Ticket(tId, title, author)
-    ticketHandler = new TicketHandler()
+    author = User(eId, username, password, email)
+    assignee = User(eId, username, password, email)
+    ticket = Ticket(tId, title, author)
+    ticketHandler = TicketHandler()
 
     ticketHandler.assign_ticket(ticket, assignee)
     ticketHandler.release_code(ticket, assignee)
 
+if __name__ == '__main__':
+    main()
